@@ -2,7 +2,10 @@
 title: "Rmarkdown"
 author: "Rike"
 date: "21/01/2021"
-output: html_document
+output: 
+  html_document:
+  toc: yes
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
