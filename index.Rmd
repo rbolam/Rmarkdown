@@ -1,7 +1,7 @@
 ---
 title: "Rmarkdown"
-author: "Rike"
-date: "21/01/2021"
+author: "By Rike"
+date: "Last updated 21/01/2021"
 output: 
   html_document:
     toc: yes
@@ -13,6 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(gapminder)
 library(tidyverse)
 ```
+
+In the r setup code chunk, you can set global options that will then work for **all** code chunks - for example, you might not want to print messages.
 
 ## R Markdown
 
@@ -33,7 +35,7 @@ ggplot(data = gapminder, aes(x = year, y = gdpPercap)) +
 
 ## Code only
 
-If you want to show the code only, set `eval = FALSE` in the curly brackets:
+If you want to show the code only, set `eval = FALSE` in the curly brackets (check the RMD file to see it):
 
 ```{r 3, eval = FALSE}
 ggplot(data = gapminder, aes(x = year, y = gdpPercap)) +
@@ -43,7 +45,7 @@ ggplot(data = gapminder, aes(x = year, y = gdpPercap)) +
 
 ## Outputs only
 
-If you want to show the outputs such as figures only, set `echo = FALSE` in the curly brackets:
+If you want to show the outputs such as figures only, set `echo = FALSE` in the curly brackets (check the RMD file to see it):
 
 ```{r 4, echo = FALSE}
 ggplot(data = gapminder, aes(x = year, y = gdpPercap)) +
@@ -51,3 +53,7 @@ ggplot(data = gapminder, aes(x = year, y = gdpPercap)) +
   facet_wrap(~continent, nrow = 1)
 ```
 
+
+You can find a full tutorial on using Rmarkdown [here](https://ourcodingclub.github.io/tutorials/rmarkdown/).  
+
+A reference guide with the key things you need can be found [here](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
