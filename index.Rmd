@@ -4,12 +4,14 @@ author: "Rike"
 date: "21/01/2021"
 output: 
   html_document:
-  toc: yes
+    toc: yes
     toc_float: true
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(gapminder)
+library(tidyverse)
 ```
 
 ## R Markdown
@@ -18,16 +20,34 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+```{r 1, eval = FALSE}
+library(gapminder)
+library(tidyverse)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r 2}
+ggplot(data = gapminder, aes(x = year, y = gdpPercap)) +
+  geom_jitter(alpha = 0.5) +
+  facet_wrap(~continent, nrow = 1)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Code only
+
+If you want to show the code only, set `eval = FALSE` in the curly brackets:
+
+```{r 3, eval = FALSE}
+ggplot(data = gapminder, aes(x = year, y = gdpPercap)) +
+  geom_jitter(alpha = 0.5) +
+  facet_wrap(~continent, nrow = 1)
+```
+
+## Outputs only
+
+If you want to show the outputs such as figures only, set `echo = FALSE` in the curly brackets:
+
+```{r 4, echo = FALSE}
+ggplot(data = gapminder, aes(x = year, y = gdpPercap)) +
+  geom_jitter(alpha = 0.5) +
+  facet_wrap(~continent, nrow = 1)
+```
+
